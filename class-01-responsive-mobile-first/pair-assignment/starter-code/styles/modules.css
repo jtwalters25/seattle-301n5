@@ -21,14 +21,15 @@
 }
 
 .main-nav {
-  padding: 0.1em;
+  padding: 1em;
+
 }
 
 .main-nav ul {
   /* NOTE: We are by defualt hiding the main nav list because we are
       expecting the UI to be mobile, therefore our new icon menu
       takes its place. */
-  display: none;
+  display: inline;
   padding: 0;
   list-style: none;
   clear: both;
@@ -43,6 +44,7 @@
   font-size: 1.5em;
   padding: .5em .2em;
   border-bottom: 1px solid #ccc;
+  display: inline-block;
 }
 
 #filters {
@@ -63,6 +65,21 @@
   text-decoration: none;
 }
 
+@media screen and (min-width: 600px){
+    .main-nav {
+     display: none;
+  }
+   .icon-power ul {
+    /* NOTE: We are by defualt hiding the main nav list because we are
+        expecting the UI to be mobile, therefore our new icon menu
+        takes its place. */
+    display: inline;
+    padding: 5px;
+    list-style:;
+    clear: both;
+  }
+
+}
 /* TODO: Now add styles for how things should look on a larger screen,
    (hint: min is in!):
 @media screen...
