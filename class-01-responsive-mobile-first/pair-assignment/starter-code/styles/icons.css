@@ -36,6 +36,7 @@
 	content: "\e909";
 }
 .icon-power::before {
+	float: right;
 	content: "\e90a";
 }
 .icon-menu::before {

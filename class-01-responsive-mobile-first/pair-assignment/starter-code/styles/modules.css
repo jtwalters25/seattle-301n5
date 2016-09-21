@@ -9,7 +9,12 @@
   padding: 0 0 .2em 1em;
 }
 
-.icon-menu {
+.icon-power {
+  float:right;
+  width: 150px;
+  height: 50px;
+
+
   /* TODO: Add styles for the icon-menu class (whether it be the
       hamburger font icon or an image of your choosing). It should be
       bigger, and off to the right. */
