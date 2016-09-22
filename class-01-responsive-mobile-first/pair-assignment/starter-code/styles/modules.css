@@ -82,6 +82,9 @@
   .main-nav li {
     display: inline-block;
   }
+  .icon-power::before{
+    display:none;
+  }
 }
 /* TODO: Now add styles for how things should look on a larger screen,
    (hint: min is in!):
