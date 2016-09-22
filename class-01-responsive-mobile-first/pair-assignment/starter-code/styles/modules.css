@@ -8,7 +8,9 @@
   float: left;
   padding: 0 0 .2em 1em;
 }
-
+.icon-power::before{
+  font-size: 2em;
+}
 .icon-power {
   float:right;
   width: 150px;
