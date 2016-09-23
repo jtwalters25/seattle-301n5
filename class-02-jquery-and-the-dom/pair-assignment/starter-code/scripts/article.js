@@ -6,12 +6,20 @@ function Article (opts) {
   // TODO: Use the js object passed in to complete this constructor function:
   // Save ALL the properties of `opts` into `this`
   this.author = opts.author;
+  this.title = opts.title;
+  this.category = opts.category;
+  this.authorUrl = opts.authorUrl;
+  this.publishedOn = opts.publishedOn;
+  this.body = opts.body;
 }
 
 Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.attr('data-category', this.category);
-
+  $newArticle.attr('data-title', this.title);
+  $newArticle.attr('data-author', this.author);
+  $newArticle.attr('data-authorUrl', this.authorUrl);
+  $newArticle.attr('data-body', this.body);
   /* TODO: Now use jQuery to fill in the rest of the current
   template clone with properties from this particular Article instance.
   We need to fill in:
