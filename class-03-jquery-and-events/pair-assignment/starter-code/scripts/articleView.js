@@ -1,6 +1,6 @@
 'use strict';
 
-// IN-CLASS TODO: Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+// IN-CLASS DONE: Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
 var articleView = {};
 
 
@@ -21,6 +21,7 @@ articleView.populateFilters = function() {
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
+
       /* TODO: If the slect box changes to an option that has a value, we should:
           1. Hide all of the articles
           2. Fade in only the articles that match based on on the author
@@ -70,3 +71,4 @@ articleView.setTeasers = function() {
 };
 
 // TODO: Invoke all of the above methods!:
+articleView.populateFilters();
