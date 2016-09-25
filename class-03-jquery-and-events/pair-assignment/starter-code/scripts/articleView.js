@@ -62,8 +62,11 @@ articleView.handleMainNav = function () {
 };
 
 articleView.toggleNavDisplay = function() {
-  // TODO: add an event handler to toggle the nav menu's display property
+  // DONE: add an event handler to toggle the nav menu's display property
   // in mobile mode when the hamburger menu is clicked
+  $('.icon-menu').on('click',function(){
+    $('.main-nav > ul').toggle();
+  });
 };
 
 articleView.setTeasers = function() {
@@ -82,4 +85,5 @@ articleView.setTeasers = function() {
 articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
-articleView.handleMainNav ();
+articleView.handleMainNav();
+articleView.toggleNavDisplay();
