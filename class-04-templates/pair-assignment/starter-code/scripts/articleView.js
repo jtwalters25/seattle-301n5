@@ -6,6 +6,7 @@ var articleView = {};
 articleView.populateFilters = function() {
   $('article').each(function() {
     var val = $(this).find('address a').text();
+    console.log(val);
     var optionTag = '<option value="' + val + '">' + val + '</option>';
     $('#author-filter').append(optionTag);
 
