@@ -62,7 +62,7 @@ Article.fetchAll = function(viewFunction) {
 // DONE: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
 Article.numWordsAll = function() {
   return Article.all.map(function(article) {
-    return article.body.split(' ').length;}).reduce(function(a, b) {
+    return article.body.split(' ').length;
     })
   .reduce(function(a, b){
     return a + b;

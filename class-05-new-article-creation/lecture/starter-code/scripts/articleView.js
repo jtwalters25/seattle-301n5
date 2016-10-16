@@ -7,6 +7,7 @@ articleView.populateFilters = function() {
   $('article').each(function() {
     var val = $(this).find('address a').text();
     var optionTag = '<option value="' + val + '">' + val + '</option>';
+    if ($('#author-filter option[value="' + val + '"]').length === 0) {
     $('#author-filter').append(optionTag);
 
     val = $(this).attr('data-category');
@@ -14,8 +15,8 @@ articleView.populateFilters = function() {
     if ($('#category-filter option[value="' + val + '"]').length === 0) {
       $('#category-filter').append(optionTag);
     }
-  });
-};
+  };
+}
 
 articleView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
