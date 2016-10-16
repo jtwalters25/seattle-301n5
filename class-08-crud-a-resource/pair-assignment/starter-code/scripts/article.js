@@ -111,7 +111,7 @@
           // Cache the json, so we don't need to request it next time:
           rawData.forEach(function(item) {
             var article = new Article(item); // Instantiate an article based on item from JSON
-            // TODO: Cache the newly-instantiated article in the DB: (what can we call on each 'article'?)
+            // DONE: Cache the newly-instantiated article in the DB: (what can we call on each 'article'?)
             article.insertRecord(() => console.log('Successfully inserted record.'));
           });
           // Now get ALL the records out the DB, with their database IDs:
