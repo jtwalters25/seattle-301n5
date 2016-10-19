@@ -56,7 +56,7 @@
       [
         {
           'sql': 'INSERT INTO articles(title, category, author, authorUrl, publishedOn, body) VALUES (?,?,?,?,?);',
-          'data': [],
+          'data': [this.title, this.category, this.author, this.authorUrl, this.publishedOn, this.body],
         }
       ],
       callback
