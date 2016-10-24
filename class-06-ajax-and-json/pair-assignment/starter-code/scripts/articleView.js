@@ -4,16 +4,15 @@
 var articleView = {};
 
 articleView.populateFilters = function() {
-  $('article').each(function() {
-    var val = $(this).find('address a').text();
-    var optionTag = '<option value="' + val + '">' + val + '</option>';
-    $('#author-filter').append(optionTag);
-
-    val = $(this).attr('data-category');
-    optionTag = '<option value="' + val + '">' + val + '</option>';
-    if ($('#category-filter option[value="' + val + '"]').length === 0) {
-      $('#category-filter').append(optionTag);
-    }
+  Article.all.forEach(function(a) {
+    $('#articles').append(a.toHtml('#article-template'));
+    $('#author-filter').append(a.toHtml('#author-filter-template'));
+    if($('#category-filter option:contains("' + a.category + '")').length === 0) {
+      $('#category-filter').append(a.toHtml('#category-filter-template'));
+    };
+  });
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
   });
 };
 
@@ -80,7 +79,7 @@ articleView.initNewArticlePage = function() {
 
 articleView.create = function() {
   var article;
-  $('#articles').empty();
+  $('#articles').empty().fadeIn();
 
   // Instantiate an article based on what's in the form fields:
   article = new Article({
@@ -89,11 +88,11 @@ articleView.create = function() {
     authorUrl: $('#article-author-url').val(),
     category: $('#article-category').val(),
     body: $('#article-body').val(),
-    publishedOn: $('#article-published:checked').length ? util.today() : null
+    publishedOn: $('#article-published:checked').length ? new Date() : null
   });
 
   // Use the Handblebars template to put this new article into the DOM:
-  $('#articles').append(article.toHtml());
+  $('#articles').append(article.toHtml('#article-template'));
 
   // Activate the highlighting of any code blocks:
   $('pre code').each(function(i, block) {
@@ -110,11 +109,10 @@ articleView.initIndexPage = function() {
   Article.all.forEach(function(a){
     $('#articles').append(a.toHtml());
   });
-
-  articleView.populateFilters();
-  articleView.handleCategoryFilter();
-  articleView.handleAuthorFilter();
-  articleView.handleMainNav();
-  articleView.toggleNavDisplay();
-  articleView.setTeasers();
 };
+articleView.populateFilters();
+articleView.handleCategoryFilter();
+articleView.handleAuthorFilter();
+articleView.handleMainNav();
+articleView.toggleNavDisplay();
+articleView.setTeasers();
