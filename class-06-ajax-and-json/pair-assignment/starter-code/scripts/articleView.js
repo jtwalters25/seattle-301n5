@@ -13,6 +13,17 @@ articleView.populateFilters = function() {
   });
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
+
+  $('article').each(function() {
+    var val = $(this).find('address a').text();
+    var optionTag = '<option value="' + val + '">' + val + '</option>';
+    $('#author-filter').append(optionTag);
+
+    val = $(this).attr('data-category');
+    optionTag = '<option value="' + val + '">' + val + '</option>';
+    if ($('#category-filter option[value="' + val + '"]').length === 0) {
+      $('#category-filter').append(optionTag);
+     }
   });
 };
 

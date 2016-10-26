@@ -14,7 +14,9 @@ Article.all = [];
 Article.prototype.toHtml = function(scriptTemplateId) {
   var template = Handlebars.compile($(scriptTemplateId).html());
 
-  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
+
+this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
+
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
   this.body = marked(this.body);
   return template(this);
@@ -27,6 +29,7 @@ Article.loadAll = function(rawData) {
   console.log('HERE');
   rawData.forEach(function(ele) {
     Article.all.push(new Article(ele));
+
   });
 };
 
@@ -60,4 +63,5 @@ Article.fetchAll = function() {
     // 4. And then render the index page (perhaps with an articleView method?).
 
   }
+
 };
